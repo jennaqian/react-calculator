@@ -1,25 +1,71 @@
 
 import React, { Component } from 'react'
 import "./App.css";
-import Buttons from "./Buttons.js";
+import Keypad from "./Keypad.js";
 import Display from "./Display.js";
+import { add, parse } from 'mathjs';
+// import math from "mathjs";
 
 export class App extends Component {
   constructor() {
     super()
 
     this.state = {
-      display: "",
+      display: "0",
       prevDisplay: null,
       operation: "",
     }
   }
 
+  
   displayNums = (e) => {
+    let v = e.target.value
     this.setState ({
-      display: (this.state.display).concat(e.target.value)
+      display: (this.state.display).concat(v)
     })
-    console.log(this.state.display)
+    // console.log(v)
+
+      if(v === "Clear"){
+        this.setState({
+          display: "0",
+          prevDisplay: null,
+          operation: "",
+        })
+        return
+      } 
+      if(v === "±"){
+        this.setState({
+          display: ((this.state.display * -1).toString()), 
+          prevDisplay: this.state.display,
+        })
+        return
+      }
+      if(v === "%"){
+        this.setState({
+          display: ((this.state.display / 100).toString()), 
+          prevDisplay: this.state.display,
+        })
+        return
+      }
+      if(v === "="){
+        if(!this.state.operation) 
+        return
+        if(this.state.operation === "+") {
+          this.setState({
+            display:(this.state.prevDisplay + parseFloat(v)).toString()
+          })
+        }
+      }
+      if(v === "+"){
+        if(this.state.operation !== null){
+          if(this.state.operation === "+"){
+            this.setState ({
+              display: this.state.prevDisplay + parseFloat(v)
+            })
+          }
+        }
+      }
+    
   }
 
   
@@ -30,11 +76,11 @@ export class App extends Component {
           <Display display={this.state.display}/>
         </div>
         <div className="buttons">
-          <Buttons displayNums={this.displayNums}/>
+          <Keypad displayNums={this.displayNums}/>
         </div>
     </div>
     )
   }
 }
 
-export default App
+export default App;

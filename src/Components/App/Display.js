@@ -5,7 +5,7 @@ function Display(props) {
 
     return (
         <div>
-            <input type="text" value={display}></input>
+            <input type="text" value={display} className="displayInput"></input>
         </div>
     )
 }

@@ -13,16 +13,31 @@
   text-align: right;
 }
 
-/* 
+.displayInput {
+  font-size: 35px;
+  width: 400px;
+  height: 100px;
+  text-align: right;
+  margin: 5px;
+  margin-bottom: 30px;
+  text-overflow: ellipsis;
+}
+
 .Button {
   font-size: 35px;
   width: 100px;
   height: 50px;
   border-radius: 50%;
 }
-.ButtonZero {
+.Clear {
   font-size: 35px;
   width: 200px;
+  height: 50px;
+  border-radius: 50%;
+}
+.ButtonZero {
+  font-size: 35px;
+  width: 100px;
   height: 50px;
   border-radius: 50%;
 }
@@ -33,4 +48,12 @@
   width: 100px;
   height: 50px;
   border-radius: 50%;
-} */
+}
+.Equal {
+  background-color: purple;
+  color: white;
+  font-size: 35px;
+  width: 200px;
+  height: 50px;
+  border-radius: 50%;
+}
