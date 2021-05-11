@@ -8,12 +8,14 @@
 }
 
 .display-container {
-  font-size: 30px;
-  margin-bottom: 5px;
-  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .displayInput {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   font-size: 35px;
   width: 400px;
   height: 100px;
@@ -21,39 +23,69 @@
   margin: 5px;
   margin-bottom: 30px;
   text-overflow: ellipsis;
+  background-color: white;
+  color: black;
 }
 
 .Button {
   font-size: 35px;
   width: 100px;
   height: 50px;
+  border-radius: 30%;
+}
+.Button:hover {
   border-radius: 50%;
 }
-.Clear {
-  font-size: 35px;
+
+.TopButton {
+  font-size: 40px;
   width: 200px;
   height: 50px;
+  color: white;
+  background-color: rosybrown;
   border-radius: 50%;
 }
+.TopButton:hover {
+  border-radius: 30%;
+}
+
 .ButtonZero {
   font-size: 35px;
   width: 100px;
   height: 50px;
+  border-radius: 30%;
+}
+.ButtonZero:hover {
   border-radius: 50%;
 }
+
 .Operator {
   background-color: orange;
   color: white;
-  font-size: 35px;
+  font-size: 40px;
   width: 100px;
   height: 50px;
+  border-radius: 30%;
+}
+.Operator:hover {
   border-radius: 50%;
 }
+
 .Equal {
-  background-color: purple;
+  background-color: lightcoral;
   color: white;
-  font-size: 35px;
+  font-size: 40px;
   width: 200px;
   height: 50px;
   border-radius: 50%;
+}
+.Equal:hover {
+  border-radius: 30%;
+}
+
+#root {
+  background-color: rosybrown;
+  display: grid;
+  justify-content: center;
+  padding: 50px;
 }

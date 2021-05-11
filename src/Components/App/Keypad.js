@@ -1,17 +1,16 @@
 import React from 'react'
 
 function Keypad(props) {
-  const {displayNums} = props
+  const {wipeItOut, displayNums, displayOperators, displayResult, posOrNeg} = props
   return (
     <div>
-        <button className="Button" onClick={displayNums} value={"±"}>±</button>
-        <button className="Button" onClick={displayNums} value={"%"}>%</button>
-        <button className="Clear" onClick={displayNums} value={"Clear"}>Clear</button>
+        <button className="TopButton" onClick={posOrNeg} value={"±"}>±</button>
+        <button className="TopButton" onClick={wipeItOut} value={"Clear"}>Clear</button>
         
-        <button className="Operator" onClick={displayNums} value={"+"}>+</button>
-        <button className="Operator" onClick={displayNums} value={"-"}>−</button>
-        <button className="Operator" onClick={displayNums} value={"×"}>×</button>
-        <button className="Operator" onClick={displayNums} value={"÷"}>÷</button>
+        <button className="Operator" onClick={displayOperators} value={"+"}>+</button>
+        <button className="Operator" onClick={displayOperators} value={"-"}>−</button>
+        <button className="Operator" onClick={displayOperators} value={"×"}>×</button>
+        <button className="Operator" onClick={displayOperators} value={"÷"}>÷</button>
         
         <button className="Button" onClick={displayNums} value={9}>9</button>
         <button className="Button" onClick={displayNums} value={8}>8</button>
@@ -23,7 +22,8 @@ function Keypad(props) {
         <button className="Button" onClick={displayNums} value={2}>2</button>
         <button className="Button" onClick={displayNums} value={1}>1</button>
         <button className="ButtonZero" onClick={displayNums} value={0}>0</button>
-        <button className="Equal" onClick={displayNums} value={"="}>=</button>
+
+        <button className="Equal" onClick={displayResult} value={"="}>=</button>
       </div>
   )
 }
