@@ -25,6 +25,12 @@ export class App extends Component {
     })
     // console.log(v)
 
+    // This if/else chain is an excellent place for a switch statement.
+    // (Look them up if you're not familiar with the syntax.)
+    // You can use them whenever you are comparing one value (`v` in this case)
+    // against a set number of possible values (`Clear`, `%`, etc.).
+    // For that one use case (and that one use case alone!) they really make your
+    // code cleaner and easier to read.
       if(v === "Clear"){
         this.setState({
           display: "0",
