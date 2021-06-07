@@ -14,37 +14,29 @@ export class App extends Component {
       firstNum: "",
       nextNum: "",
     }
-    // this.state.firstNum = ""
-    // this.state.nextNum = ""
-
   }
   
   displayNums = (e) => {
     let v = e.target.value
     if(!this.state.operation){
       if(this.state.display === "0"){
-        // this.state.firstNum = v
         this.setState ({
           firstNum: v,
           display: v,
         }) 
       } else {
-        // this.state.firstNum = this.state.firstNum + v
         this.setState ({
           firstNum: this.state.firstNum.concat(v),
           display: this.state.firstNum.concat(v),
         }) 
       }
     } else {
-      // this.state.display === "0" || 
         if(this.state.firstNum && !this.state.nextNum){
-          // this.state.nextNum = v
           this.setState ({
             nextNum: v,
             display: v,
           }) 
         } else {
-          // this.state.nextNum = this.state.nextNum + v
           this.setState ({
             nextNum: this.state.nextNum + v,
             display: this.state.nextNum + v,
@@ -123,50 +115,6 @@ export class App extends Component {
       })
     }
   }
-
-  //     if(v === "Clear"){
-  //       this.setState({
-  //         display: "0",
-  //         prevDisplay: null,
-  //         operation: "",
-  //       })
-  //       return
-  //     } 
-  //     if(v === "±"){
-  //       this.setState({
-  //         display: ((this.state.display * -1).toString()), 
-  //         prevDisplay: this.state.display,
-  //       })
-  //       return
-  //     }
-  //     if(v === "%"){
-  //       this.setState({
-  //         display: ((this.state.display / 100).toString()), 
-  //         prevDisplay: this.state.display,
-  //       })
-  //       return
-  //     }
-  //     if(v === "="){
-  //       if(!this.state.operation) 
-  //       return
-  //       if(this.state.operation === "+") {
-  //         this.setState({
-  //           display:(this.state.prevDisplay + parseFloat(v)).toString()
-  //         })
-  //       }
-  //     }
-  //     if(v === "+"){
-  //       if(this.state.operation !== null){
-  //         if(this.state.operation === "+"){
-  //           this.setState ({
-  //             display: this.state.prevDisplay + parseFloat(v)
-  //           })
-  //         }
-  //       }
-  //     }
-    
-  // }
-
   
   render() {
     return (
