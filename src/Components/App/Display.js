@@ -6,7 +6,7 @@ function Display(props) {
     return (
         <div>
             {/* <input value={display} className="displayInput"></input> */}
-            <p className="displayInput">{display}</p>
+            <p className="displayInput">{new Intl.NumberFormat("en").format(display)}</p>
         </div>
     )
 }

@@ -11,42 +11,43 @@ export class App extends Component {
     this.state = {
       display: "0",
       operation: "",
+      firstNum: "",
+      nextNum: "",
     }
-    this.firstNum = ""
-    this.nextNum = ""
+    // this.state.firstNum = ""
+    // this.state.nextNum = ""
 
   }
-
-
   
   displayNums = (e) => {
     let v = e.target.value
     if(!this.state.operation){
       if(this.state.display === "0"){
-        this.firstNum = v
+        // this.state.firstNum = v
         this.setState ({
-          // firstNum: v,
-          display: new Intl.NumberFormat("en").format(this.firstNum),
+          firstNum: v,
+          display: v,
         }) 
       } else {
-        this.firstNum = this.firstNum + v
+        // this.state.firstNum = this.state.firstNum + v
         this.setState ({
-          // firstNum: this.state.firstNum.concat(v),
-          display: new Intl.NumberFormat("en").format(this.firstNum),
+          firstNum: this.state.firstNum.concat(v),
+          display: this.state.firstNum.concat(v),
         }) 
       }
     } else {
-        if(this.state.display === "0" || (this.firstNum && !this.nextNum)){
-          this.nextNum = v
+      // this.state.display === "0" || 
+        if(this.state.firstNum && !this.state.nextNum){
+          // this.state.nextNum = v
           this.setState ({
-            // firstNum: v,
-            display: new Intl.NumberFormat("en").format(this.nextNum),
+            nextNum: v,
+            display: v,
           }) 
         } else {
-          this.nextNum = this.nextNum + v
+          // this.state.nextNum = this.state.nextNum + v
           this.setState ({
-            // firstNum: this.state.firstNum.concat(v),
-            display: new Intl.NumberFormat("en").format(this.nextNum),
+            nextNum: this.state.nextNum + v,
+            display: this.state.nextNum + v,
           }) 
         }
     }
@@ -63,29 +64,29 @@ export class App extends Component {
 
   displayResult = () => {
     this.variable = 0
-    if(this.nextNum){
+    if(this.state.nextNum){
       switch (this.state.operation) {
-        case "+": this.variable = parseInt(this.firstNum) + parseInt(this.nextNum)
+        case "+": this.variable = parseInt(this.state.firstNum) + parseInt(this.state.nextNum)
           this.setState({
-            display: new Intl.NumberFormat("en").format(this.variable),
+            display: this.variable,
           })
           break;
 
-        case "-": this.variable = parseInt(this.firstNum) - parseInt(this.nextNum)
+        case "-": this.variable = parseInt(this.state.firstNum) - parseInt(this.state.nextNum)
         this.setState({
-          display: new Intl.NumberFormat("en").format(this.variable),
+          display: this.variable,
         })
           break;
       
-        case "×": this.variable = parseInt(this.firstNum) * parseInt(this.nextNum)
+        case "×": this.variable = parseInt(this.state.firstNum) * parseInt(this.state.nextNum)
           this.setState({
-            display: new Intl.NumberFormat("en").format(this.variable),
+            display: this.variable,
           })
           break;
 
-        case "÷": this.variable = parseInt(this.firstNum) / parseInt(this.nextNum)
+        case "÷": this.variable = Math.floor(parseInt(this.state.firstNum) / parseInt(this.state.nextNum))
           this.setState({
-            display: new Intl.NumberFormat("en").format(this.variable),
+            display: this.variable,
           })
           break;
 
@@ -94,31 +95,31 @@ export class App extends Component {
       }
       this.setState({
         operation: "",
+        firstNum: this.variable,
+        nextNum: 0,
       })
-      this.firstNum = this.variable
-      this.nextNum = 0
-    }
   }
+}
 
   wipeItOut = () => {
     this.setState({
       display: "0",
       operation: "",
+      firstNum: "",
+      nextNum: "",
     })
-    this.firstNum = ""
-    this.nextNum = ""
   }
 
   posOrNeg = () => {
-    if(!this.nextNum && this.state.display !== "0"){
-      this.firstNum = parseInt(this.firstNum) * -1
+    if(!this.state.nextNum && this.state.display !== "0"){
       this.setState({
-        display: new Intl.NumberFormat("en").format(this.firstNum)
+        firstNum: parseInt(this.state.firstNum) * -1,
+        display: this.state.firstNum * -1,
       })
-    } else if (this.nextNum) {
-      this.nextNum = this.nextNum * -1
+    } else if (this.state.nextNum) {
       this.setState ({
-        display: new Intl.NumberFormat("en").format(this.nextNum)
+        nextNum: this.state.nextNum * -1,
+        display: this.state.nextNum * -1,
       })
     }
   }

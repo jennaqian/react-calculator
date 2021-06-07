@@ -83,7 +83,7 @@
   border-radius: 30%;
 }
 
-#root {
+html {
   background-color: rosybrown;
   display: grid;
   justify-content: center;
