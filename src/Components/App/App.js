@@ -76,7 +76,7 @@ export class App extends Component {
           })
           break;
 
-        case "÷": this.variable = Math.floor(parseInt(this.state.firstNum) / parseInt(this.state.nextNum))
+        case "÷": this.variable = Math.round(parseInt(this.state.firstNum) / parseInt(this.state.nextNum))
           this.setState({
             display: this.variable,
           })
